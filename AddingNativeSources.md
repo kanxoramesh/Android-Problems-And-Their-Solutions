@@ -1,4 +1,4 @@
-# Native files (C, C++) implementations in android with **[CMakeList](https://developer.android.com/ndk/guides/cmake)
+# Native files (C, C++) implementations in android with [CMakeList](https://developer.android.com/ndk/guides/cmake)
 
 
 # Usage
@@ -27,14 +27,14 @@ add_library( # Specifies the name of the library.
              # Provides a relative path to your source file(s).
              main/native/native-lib.cpp )
 ```
-* Make your Java file under your android package name . This file will be responsible for accessing native methos . make a java class like MySecure.java 
+* Make your Java file under your android package name . This file will be responsible for accessing native methods. Make a java class like MySecure.java 
 
 * Make native file under \app\src\main\ with name 'native'	
 * Make your native file name like 'native-lib.cpp' if you have to wrte file in C++ language 
 * write your logic/code under this file 
  note:- Native files method are only accessible from your project which has same directory as your method name in native files 
  
-// start with Java and make underscore for package name having dot(.) and ten finally your native method name 
+// start with Java and make underscore for package name having dot(.) and append your native method name 
 ```
 #include <jni.h>
 
@@ -47,9 +47,8 @@ extern "C" {
     }
 }
 ```
-* Now got to MySecure.java file 
+* Now go to MySecure.java file, access your native file with this code 
 
- access your native file with this code 
  ```
     static {
         System.loadLibrary("native-lib");
@@ -58,7 +57,7 @@ extern "C" {
     public static native String getAPIKey();
  ```
  
- * Here you just setup your native implementaion. To make actually wokable , you have to put some line of code in app level build.gradle . Now go to app level build.gradle and 
+ * Here you just setup your native implementaion. To make actually wokable , you have to put some line of code in app level build.gradle . now go to app level build.gradle and 
  put this line of code under android block
  ```
  android{
@@ -73,10 +72,12 @@ extern "C" {
  ```
  
 * you can call MySecure.getAPIKey() method from your code to access native method content 
+
 ****** success ******
 
-*** Some Problems can occur to run the peoject *** 
---> If you have any problems in running projects 
+# Some Problems can occur to run the peoject 
+
+* If you have any problems in running projects 
 
 1. Make sure you have NDK installed in your project 
   to confirm this , you can give ndk location from youe local.properties file 
