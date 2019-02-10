@@ -86,7 +86,7 @@ extern "C" {
   
  ```
 2. If you got problem in CMake , you have to installed CMake in you Laptop/Computer 
- **[Download CMake](https://cmake.org/download/) form official link , and put it on your file and give it's location in local.properties file in android studio like
+[Download CMake](https://cmake.org/download/) form official link , and put it on your file and give it's location in local.properties file in android studio like
 
  ```
  cmake.dir= ..\sdk\\cmake\\3.10.2.4988404
