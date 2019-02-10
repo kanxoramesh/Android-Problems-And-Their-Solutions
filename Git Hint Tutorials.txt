@@ -1,0 +1,117 @@
+﻿Git Tutorials
+
+1. First initialize the git with --> git init
+config username and email -->
+		git config --global user.name "Ramesh Pokhrel"
+		git config --global user.email "kanxoramesh@gmail.com"
+		git config --list
+
+2. DownLoad/Clone the Repository-->
+               git clone repoAddress
+
+pushing to a remote repo
+
+3. Add repo url to your local-->
+               git remote add nickNameofRepo url---
+
+4. check remote name --> 
+               git remote
+
+5. push to remote --> 
+               git push -u nickNameofRepo <branch>
+
+  with force--> git push -f origin <branch>
+
+
+6. add files --> git add <files> or . 
+
+7. commit --> git commit -m "message"
+
+8. Directly Commit --> git commit -am "directly ,no need To add Seperately"
+
+
+9. check status --> git status
+
+6. check different From Files is --> git diff
+
+7. Remove The  files --> git rm "fileName"
+
+8. to rename first Rename file in DIrectory and remove the File From cmd 
+,add rename file with cmd now check Status And commit
+
+9. to move File From Another File -> git mv sourcrFile destinationFile
+ moving Create  Destination File Automatically
+
+
+11. we can manage working copy changes From repositories ,
+ working directory is our computer file, if we changes anyThings in working directory .
+ we can reset it from  repository --> git checkout -- filename
+ 
+ 12. if we add wrong edited file in repositories before commit,
+ we can change stage to unstage => git reset HEAD fileName
+
+ 13. go to old version---> we need commit number 
+     --> this can be taken from--> 
+        git log 
+ 
+		git checkout commit_num -- filename
+	
+
+pushing to bRanch-->>git branch RameshBranch and push to this branch name
+
+
+
+
+ read file and write with editor  --> vim filename 
+
+  insert to insert and esc to escape 
+  to quit without saving --> :q
+  to quit with Saving --> :x
+  
+  
+  pull all file from currently working remote repo then 
+  --> git pull nickNameofRepo master
+
+ 30. switch to another branch --> git checkout branch
+Name
+ 
+ 31. To delete a local branch
+		git branch -d the_local_branch
+
+32. To remove a remote branch
+		git push origin :the_remote_branch
+	or simply use the new syntax (v1.7.0)
+		git push origin --delete the_remote_branch
+
+33.
+		then revert to that commit:
+
+		git revert -m 1 <merge-commit>
+		With ‘-m 1’ we tell git to revert to the first 
+parent of the mergecommit on the master branch.
+ -m 2 would specify to revert to the first parent 
+on the develop branch where the merge came from initially.
+
+34. merge two branch we want to merge branch name to
+ current branch -->> git merge branchName
+35. list all remote branches-->> git branch -r  
+
+36.name of remote repo --->> git remote
+
+37. comparing branch --> git diff firstBranch..secBranch
+38. abort merge -->git merge -abort
+39.add tag -->git $ git tag -a v3.5 -m "Cosys release with force log out" 
+40. push tags-->$ git push --tags
+41. git dif between two branches--> git diff branch_1..branch_2
+42. dit dif between two commit --> git diff HEAD^ HEAD
+43. undo modified files--> git reset --hard
+
+44. Push your new branch to the remote repository: 
+    git push -u origin feature_branch_name.
+
+45. Auth the user 
+$ git config credential.helper store
+$ git push https://github.com/repo.git
+
+Username for 'https://github.com': <USERNAME>
+Password for 'https://USERNAME@github.com': <PASSWOR
