@@ -1,0 +1,36 @@
+git filter-branch -f --tree-filter 'rm  android/java_pid15260.hprof' 76cd9cf234ce8715..HEAD
+
+java_pid17748.hprof
+java_pid20712.hprof
+
+git filter-branch --force --index-filter \
+  'git rm --cached --ignore-unmatch android/java_pid20712.hprof' \
+  --prune-empty --tag-name-filter cat -- --all
+
+ 1. go to /.git/objects/pack
+
+   pack-e06a0cf4b1855f85c34af783f5fd852d461d59a6.idx
+   pack-e06a0cf4b1855f85c34af783f5fd852d461d59a6
+
+ 2. Add command in git bash with idx file.
+
+  git verify-pack -v .git/objects/pack/pack-e06a0cf4b1855f85c34af783f5fd852d461d59a6.idx | sort -k 3 -n | tail -3 
+
+ This will give the large file list:
+
+	   8f037b0c4218ac364e6702892ef6637d37c24267 blob   21583618 20892356 50385940
+	   76a6965c0590a25c1122998c40a9852048ca09ed blob   21629544 20946904 166630
+	   c7afde4c8e25453bda552e4216e9dd3f76ef9282 blob   21657352 20976193 208545726
+
+4. get file location
+
+  git rev-list --objects --all | grep c7afde4c8e25453bda552e4216e9dd3f76ef9282
+  android/app/release/200205trackify.apk
+
+5. Add following cmd to delete files 
+
+		git filter-branch --force --index-filter \
+		  'git rm --cached --ignore-unmatch android/app/release/app-release.apk' \
+		  --prune-empty --tag-name-filter cat -- --all
+
+
