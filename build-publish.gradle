@@ -1,0 +1,32 @@
+
+publishing {
+    publications {
+        aar(MavenPublication) {
+            groupId= authPackageName
+            version = authOnFidoVersion
+            artifactId =authOnFidoArtifactId
+
+            // Tell maven to prepare the generated "*.aar" file for publishing
+            artifact("release.aar")
+            pom.withXml {
+                def dependenciesNode = asNode().appendNode('dependencies')
+                configurations.implementation.allDependencies.each { dependency ->
+                    def dependencyNode = dependenciesNode.appendNode('dependency')
+                    dependencyNode.appendNode('groupId', dependency.group)
+                    dependencyNode.appendNode('artifactId', dependency.name)
+                    dependencyNode.appendNode('version', dependency.version)
+                }
+            }
+        }
+    }
+
+    repositories {
+        maven {
+            url repsyUrl
+            credentials {
+                username repsyUsername
+                password repsyPassword
+            }
+        }
+    }
+}
