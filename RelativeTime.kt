@@ -2,6 +2,25 @@ package com.threecallistos.cmcandroid.utils
 
 import kotlin.math.floor
 
+/* 
+EEE : Day ( Mon )
+MMMM : Full month name ( December ) // MMMM February   
+MMM : Month in words ( Dec )
+MM : Month ( 12 )
+dd : Day in 2 chars ( 03 )
+d: Day in 1 char (3)
+HH : Hours ( 12 )
+mm : Minutes ( 50 )
+ss : Seconds ( 34 )
+yyyy: Year ( 2020 ) //both yyyy and YYYY are same
+YYYY: Year ( 2020 )
+zzz : GMT+05:30
+a : ( AM / PM )
+aa : ( AM / PM )
+aaa : ( AM / PM )
+aaaa : ( AM / PM )
+*/
+
 class RelativeTime {
     val minuteInSeconds = 60f;
     val hourInSeconds = 60f * 60;
